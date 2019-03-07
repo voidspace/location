@@ -2,11 +2,11 @@ from .typedproperty import typedproperty
 
 
 class Location:
-    __slots__ = ['_name', '_latitude', '_longitude']
+    __slots__ = ["_name", "_latitude", "_longitude"]
 
-    name = typedproperty('name', str)
-    latitude = typedproperty('latitude', float)
-    longitude = typedproperty('longitude', float)
+    name = typedproperty("name", str)
+    latitude = typedproperty("latitude", float)
+    longitude = typedproperty("longitude", float)
 
     def __init__(self, name, latitude, longitude):
         self.name = name

@@ -1,19 +1,20 @@
 import pathlib
 
-name = 'location'
-version = '0.1.0'
+from .location import Location  # noqa
+from .locationstore import LocationStore  # noqa
+from .sources import FileSource, NetworkSource  # noqa
 
-from .location import Location
-from .locationstore import LocationStore
-from .sources import FileSource, NetworkSource
+name = "location"
+version = "0.1.0"
 
 
-def get_store(path=None, formatter_name='txt'):
-    """Fetch a store using the file provides (defaults to the included data file) and the specified formatter name
-    (defaults to 'txt')."""
+def get_store(path=None, formatter_name="txt"):
+    """
+    Fetch a store using the file provided (defaults to the included data file) and the
+    specified formatter name (defaults to 'txt')."""
     if path is None:
         this_dir = pathlib.Path(__file__).parent
-        path = this_dir / 'coords.csv'
+        path = this_dir / "coords.csv"
     source = FileSource(path)
     store = LocationStore(formatter_name)
     store.fetch_places(source)

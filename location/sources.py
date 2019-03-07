@@ -1,6 +1,7 @@
 import requests
 from .location import Location
 
+
 class Source:
     def fetch(self):
         raise NotImplementedError
@@ -11,7 +12,7 @@ class Source:
             line = line.rstrip()
             if line == "":
                 continue
-            name, longitude, latitude = line.split('\t')
+            name, longitude, latitude = line.split("\t")
             places.append(Location(name, float(longitude), float(latitude)))
         return places
 
@@ -32,8 +33,10 @@ class NetworkSource(Source):
     def fetch(self):
         response = requests.get(self.url)
         if response.status_code != 200:
-            raise Exception("url {!r} failed with status code {}".format(self.url, response.status_code))
+            raise Exception(
+                "url {!r} failed with status code {}".format(
+                    self.url, response.status_code
+                )
+            )
         lines = response.text.splitlines()
         return self._handle_lines(lines)
-
-

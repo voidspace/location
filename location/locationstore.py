@@ -3,7 +3,6 @@ from .formatters import create_formatter
 
 
 class LocationStore:
-
     def __init__(self, formatter_name):
         self._formatter = create_formatter(formatter_name)
         self._places = {}
@@ -50,12 +49,15 @@ class LocationStore:
         lon1 = location1.longitude
         lon2 = location2.longitude
 
-        p = 0.017453292519943295     #Pi/180
-        a = 0.5 - cos((lat2 - lat1) * p)/2 + cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
+        p = 0.017453292519943295  # Pi/180
+        a = (
+            0.5
+            - cos((lat2 - lat1) * p) / 2
+            + cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
+        )
         return 12742 * asin(sqrt(a))
 
     def display_locations(self):
-        self._formatter.headings(['Name', 'Latitude', 'Longitude'])
+        self._formatter.headings(["Name", "Latitude", "Longitude"])
         for name in self.all_names():
             self._formatter.row(self[name])
-
