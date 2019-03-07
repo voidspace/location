@@ -7,4 +7,5 @@ install:
 # command to run tests
 script:
   - flake8 location
+  - black location --check
   - pytest
