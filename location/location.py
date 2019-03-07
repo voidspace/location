@@ -16,3 +16,6 @@ class Location:
     def __iter__(self):
         for field in ["name", "longitude", "latitude"]:
             yield getattr(self, field)
+
+    def __repr__(self):
+        return f'Location({self.name:!r}, {self.latitude:!r}, {self.longitude:!r})'
