@@ -1,11 +1,21 @@
 import pathlib
 
-from .location import Location  # noqa
-from .locationstore import LocationStore  # noqa
-from .sources import FileSource, NetworkSource  # noqa
+from .location import Location  # NOQA
+from .locationstore import LocationStore  # NOQA
+from .sources import FileSource, NetworkSource  # NOQA
 
 name = "location"
 version = "0.1.0"
+
+__all__ = [
+    "name",
+    "version",
+    "get_store",
+    "Location",
+    "LocationStore",
+    "FileSource",
+    "NetworkSource",
+]
 
 
 def get_store(path=None, formatter_name="txt"):
