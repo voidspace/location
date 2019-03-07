@@ -19,4 +19,7 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3.0 or later (GPL-3.0-or-later)",
         "Operating System :: OS Independent",
     ],
+    install_requires=[
+        "requests"
+    ]
 )
