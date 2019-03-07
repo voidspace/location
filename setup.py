@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/voidspace/location",
     packages=setuptools.find_packages(),
+    package_data={'location': ['*.csv']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3.0 or later (GPL-3.0-or-later)",
