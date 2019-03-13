@@ -18,4 +18,7 @@ class Location:
             yield getattr(self, field)
 
     def __repr__(self):
-        return f"Location({self.name:!r}, {self.latitude:!r}, {self.longitude:!r})"
+        return f"Location({self.name!r}, {self.latitude!r}, {self.longitude!r})"
+
+    def __str__(self):
+        return f'<Location name={self.name!r} latitude={self.latitude!r} longitude={self.longitude!r}>'
