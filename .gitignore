@@ -1,6 +1,9 @@
 # PyCharm
 .idea
 
+# html test report
+report.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
