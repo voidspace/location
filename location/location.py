@@ -13,6 +13,9 @@ class Location:
         self.latitude = latitude
         self.longitude = longitude
 
+    def to_tuple(self):
+        return tuple(self)
+
     def __iter__(self):
         for field in ["name", "longitude", "latitude"]:
             yield getattr(self, field)
