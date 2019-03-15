@@ -24,9 +24,13 @@ class Location:
         return f"Location({self.name!r}, {self.latitude!r}, {self.longitude!r})"
 
     def __str__(self):
-        return f'<Location name={self.name!r} latitude={self.latitude!r} longitude={self.longitude!r}>'
+        return f"<Location name={self.name!r} latitude={self.latitude!r} longitude={self.longitude!r}>"
 
     def __eq__(self, other):
         if not isinstance(other, Location):
             return False
-        return other.name == self.name and other.longitude == self.longitude and self.latitude == other.latitude
+        return (
+            other.name == self.name
+            and other.longitude == self.longitude
+            and self.latitude == other.latitude
+        )
